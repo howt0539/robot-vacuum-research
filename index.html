@@ -2,8 +2,10 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>掃地機器人選購研究報告 v3 ｜2026 自動上下水 × 11cm 沙發</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>掃地機器人選購研究報告 v4 ｜2026 自動上下水 × 11cm 沙發</title>
 <meta name="description" content="2026 年自動上下水掃地機器人 7 大品牌完整掃過，含 Reddit + Mobile01 + PTT 實際用戶滿意度。">
 <style>
 :root {
@@ -28,31 +30,146 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  padding: 16px 16px 80px;
+  padding: 14px 14px 96px;
   overscroll-behavior-x: none;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  body { padding: 12px 12px 88px; font-size: 15px; line-height: 1.65; }
 }
 .container { max-width: 760px; margin: 0 auto; }
 
-.hero { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.hero { text-align: center; padding: 24px 0 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+@media (max-width: 600px) {
+  .hero { padding: 14px 0 14px; margin-bottom: 16px; }
+}
 .hero .badge {
   display: inline-block;
   background: linear-gradient(135deg, #60a5fa20, #c084fc20);
   border: 1px solid #60a5fa50;
   color: var(--accent);
-  font-size: 0.75em;
-  padding: 4px 10px;
+  font-size: 0.72em;
+  padding: 3px 10px;
   border-radius: 99px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   letter-spacing: 0.05em;
 }
-.hero h1 { font-size: 1.6em; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
-.hero .sub { color: var(--text-dim); font-size: 0.9em; }
-.hero .ver { display: inline-block; background: #fbbf2420; color: var(--gold); border: 1px solid #fbbf2440; padding: 2px 8px; border-radius: 99px; font-size: 0.7em; margin-left: 6px; }
+.hero h1 { font-size: 1.5em; font-weight: 800; line-height: 1.25; margin-bottom: 6px; }
+@media (max-width: 600px) { .hero h1 { font-size: 1.25em; } }
+.hero .sub { color: var(--text-dim); font-size: 0.88em; }
+@media (max-width: 600px) { .hero .sub { font-size: 0.8em; } }
+.hero .ver { display: inline-block; background: #fbbf2420; color: var(--gold); border: 1px solid #fbbf2440; padding: 2px 8px; border-radius: 99px; font-size: 0.65em; margin-left: 6px; vertical-align: middle; }
 
-section { margin-bottom: 40px; }
-h2 { font-size: 1.2em; font-weight: 700; margin-bottom: 16px; padding-left: 12px; border-left: 3px solid var(--accent); }
-h3 { font-size: 1.05em; margin: 20px 0 10px; color: var(--text); }
-p { margin-bottom: 12px; color: var(--text); font-size: 0.95em; }
+/* Quick answer card 行動版置頂 */
+.quick-answer {
+  background: linear-gradient(135deg, #fbbf2418, #60a5fa18);
+  border: 1px solid #fbbf2450;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.quick-answer .qa-label {
+  display: inline-block;
+  background: var(--gold);
+  color: #1a1206;
+  font-size: 0.68em;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.quick-answer .qa-pick {
+  font-size: 1.15em;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.quick-answer .qa-reason {
+  font-size: 0.84em;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.quick-answer .qa-cta {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.78em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 12px;
+  border-radius: 99px;
+  text-decoration: none;
+}
+.quick-answer .qa-cta:active { background: var(--accent); color: #061226; }
+
+/* Sticky TOC FAB */
+.toc-fab {
+  position: fixed;
+  bottom: 16px;
+  right: 14px;
+  background: var(--accent);
+  color: #061226;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(96,165,250,0.4);
+  z-index: 100;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.toc-fab:active { transform: scale(0.95); }
+
+.toc-sheet {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.toc-sheet.open { display: flex; }
+.toc-sheet-inner {
+  background: var(--bg-card);
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 480px;
+  padding: 18px 18px 32px;
+  max-height: 75vh;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+}
+.toc-sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: 0 auto 14px;
+}
+.toc-sheet-inner h3 { font-size: 0.85em; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+.toc-sheet-inner a {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  padding: 12px 0;
+  font-size: 0.95em;
+  border-bottom: 1px solid var(--border);
+}
+.toc-sheet-inner a:last-child { border: none; }
+
+section { margin-bottom: 32px; scroll-margin-top: 16px; }
+@media (max-width: 600px) { section { margin-bottom: 24px; } }
+h2 { font-size: 1.15em; font-weight: 700; margin-bottom: 14px; padding-left: 10px; border-left: 3px solid var(--accent); }
+@media (max-width: 600px) { h2 { font-size: 1.05em; } }
+h3 { font-size: 1em; margin: 16px 0 8px; color: var(--text); }
+p { margin-bottom: 10px; color: var(--text); font-size: 0.92em; }
 .dim { color: var(--text-dim); }
 
 .alert-box {
@@ -76,9 +193,10 @@ p { margin-bottom: 12px; color: var(--text); font-size: 0.95em; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
 }
+@media (max-width: 600px) { .card { padding: 13px; border-radius: 12px; } }
 .card.new { border-color: #34d39960; box-shadow: 0 0 0 1px #34d39920; }
 .card.warn { border-color: #fb923c40; background: linear-gradient(135deg, var(--bg-card), #fb923c08); }
 .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
@@ -124,22 +242,41 @@ p { margin-bottom: 12px; color: var(--text); font-size: 0.95em; }
 .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 .video-caption { font-size: 0.8em; color: var(--text-mute); margin-top: 6px; }
 
-.table-wrap { overflow-x: auto; margin: 16px -16px; padding: 0 16px; }
+.table-wrap {
+  overflow-x: auto;
+  margin: 14px -14px;
+  padding: 0 14px;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+.table-wrap::after {
+  content: "";
+  position: sticky;
+  right: 0;
+  display: block;
+  width: 30px;
+  margin-top: -1px;
+  pointer-events: none;
+}
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85em;
+  font-size: 0.84em;
   background: var(--bg-card);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
 }
-th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th, td { padding: 9px 8px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
 th { background: var(--bg-card-2); color: var(--text-dim); font-weight: 600; font-size: 0.78em; text-transform: uppercase; }
 tr:last-child td { border-bottom: none; }
 .col-gold { color: var(--gold); font-weight: 700; }
 .col-red { color: var(--red); font-weight: 700; }
 .row-warn td { background: #fb923c08; }
 .row-bad td { background: #f8717108; color: var(--text-dim); }
+@media (max-width: 600px) {
+  table { font-size: 0.78em; }
+  th, td { padding: 8px 6px; }
+}
 
 .scenario {
   background: var(--bg-card);
@@ -168,22 +305,27 @@ tr:last-child td { border-bottom: none; }
   background: linear-gradient(135deg, #60a5fa15, #c084fc15);
   border: 1px solid #60a5fa40;
   border-radius: 14px;
-  padding: 20px;
+  padding: 18px 16px;
   text-align: center;
 }
-.final-box .label { font-size: 0.75em; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 8px; }
-.final-box .name { font-size: 1.3em; font-weight: 800; margin-bottom: 6px; }
-.final-box .reason { font-size: 0.9em; color: var(--text-dim); }
+@media (max-width: 600px) { .final-box { padding: 16px 12px; } }
+.final-box .label { font-size: 0.72em; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 8px; }
+.final-box .name { font-size: 1.2em; font-weight: 800; margin-bottom: 6px; }
+.final-box .reason { font-size: 0.88em; color: var(--text-dim); }
 
 footer { text-align: center; color: var(--text-mute); font-size: 0.8em; padding-top: 24px; border-top: 1px solid var(--border); }
 footer a { color: var(--text-dim); text-decoration: none; }
 footer a:hover { color: var(--accent); }
 
-.toc { background: var(--bg-card); border-radius: 12px; padding: 14px 16px; margin-bottom: 28px; }
-.toc-title { font-size: 0.8em; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-.toc a { display: block; color: var(--text); text-decoration: none; padding: 6px 0; font-size: 0.9em; border-bottom: 1px dashed var(--border); }
+.toc { background: var(--bg-card); border-radius: 12px; padding: 12px 14px; margin-bottom: 20px; }
+.toc-title { font-size: 0.75em; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.toc a { display: block; color: var(--text); text-decoration: none; padding: 7px 0; font-size: 0.88em; border-bottom: 1px dashed var(--border); }
 .toc a:last-child { border-bottom: none; }
 .toc a:hover { color: var(--accent); }
+.toc a:active { color: var(--accent); }
+@media (max-width: 600px) {
+  .toc { display: none; } /* 手機改用浮鈕，省空間 */
+}
 
 .changelog {
   background: linear-gradient(135deg, #34d39915, #60a5fa15);
@@ -196,39 +338,36 @@ footer a:hover { color: var(--accent); }
 .changelog .v { color: var(--green); font-weight: 700; }
 
 /* Battle / 3-way comparison */
-.battle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0; }
-@media (max-width: 600px) { .battle-grid { grid-template-columns: 1fr; gap: 12px; } }
+.battle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0; }
 .battle-col {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 12px 10px;
+  padding: 10px 8px;
   text-align: center;
 }
 .battle-col.win { border-color: var(--gold); background: linear-gradient(180deg, #fbbf2410, var(--bg-card)); }
-.battle-col .machine-name { font-weight: 700; font-size: 0.82em; margin-bottom: 4px; }
-.battle-col .machine-brand { font-size: 0.7em; color: var(--text-mute); margin-bottom: 8px; }
+.battle-col .machine-name { font-weight: 700; font-size: 0.82em; margin-bottom: 4px; line-height: 1.3; }
+.battle-col .machine-brand { font-size: 0.68em; color: var(--text-mute); margin-bottom: 6px; line-height: 1.3; }
+@media (max-width: 600px) {
+  .battle-col { padding: 8px 6px; }
+  .battle-col .machine-name { font-size: 0.74em; }
+  .battle-col .machine-brand { font-size: 0.62em; }
+}
 
+/* Score row 桌機版 */
 .score-row {
   display: grid;
-  grid-template-columns: 100px 1fr 1fr 1fr;
+  grid-template-columns: 110px 1fr 1fr 1fr;
   align-items: center;
   gap: 8px;
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--border);
 }
-@media (max-width: 600px) { .score-row { grid-template-columns: 1fr; gap: 4px; } }
-.score-row .dim-label { font-size: 0.85em; color: var(--text-dim); font-weight: 600; }
-.score-row .dim-label small { display: block; color: var(--text-mute); font-size: 0.75em; font-weight: 400; }
-.score-cell { display: flex; align-items: center; gap: 6px; font-size: 0.82em; }
-.score-bar {
-  flex: 1;
-  height: 6px;
-  background: var(--bg-card-2);
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
+.score-row .dim-label { font-size: 0.88em; color: var(--text); font-weight: 600; }
+.score-row .dim-label small { display: block; color: var(--text-mute); font-size: 0.72em; font-weight: 400; margin-top: 2px; }
+.score-cell { display: flex; align-items: center; gap: 6px; font-size: 0.82em; min-width: 0; }
+.score-bar { flex: 1; height: 6px; background: var(--bg-card-2); border-radius: 3px; overflow: hidden; }
 .score-fill { height: 100%; border-radius: 3px; }
 .score-fill.s10 { width: 100%; background: var(--green); }
 .score-fill.s9 { width: 90%; background: var(--green); }
@@ -238,13 +377,48 @@ footer a:hover { color: var(--accent); }
 .score-fill.s5 { width: 50%; background: var(--gold); }
 .score-fill.s4 { width: 40%; background: var(--orange); }
 .score-fill.s3 { width: 30%; background: var(--orange); }
-.score-num { min-width: 22px; font-size: 0.75em; color: var(--text-mute); text-align: right; font-variant-numeric: tabular-nums; }
-.score-num.win { color: var(--gold); font-weight: 700; }
-@media (max-width: 600px) {
-  .score-row .machine-tag { font-size: 0.7em; color: var(--text-mute); margin-right: 6px; min-width: 50px; display: inline-block; }
-}
+.score-num { min-width: 24px; font-size: 0.78em; color: var(--text-dim); text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.score-num.win { color: var(--gold); font-weight: 800; }
 .machine-tag { display: none; }
-@media (max-width: 600px) { .machine-tag { display: inline-block; } }
+
+/* Score row 手機版：標題上面，3 機 1 行並排 */
+@media (max-width: 600px) {
+  .score-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0;
+  }
+  .score-row .dim-label {
+    flex: 0 0 100%;
+    margin-bottom: 2px;
+    font-size: 0.95em;
+  }
+  .score-cell {
+    flex: 1 1 0;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    background: var(--bg-card-2);
+    padding: 8px 9px;
+    border-radius: 8px;
+  }
+  .machine-tag {
+    display: block;
+    font-size: 0.68em;
+    color: var(--text-mute);
+    font-weight: 600;
+    text-align: center;
+  }
+  .score-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,0.08);
+    flex: none;
+  }
+  .score-num { text-align: center; font-size: 1em; font-weight: 800; }
+}
 
 .verdict {
   background: linear-gradient(135deg, #fbbf2415, #60a5fa15);
@@ -259,15 +433,19 @@ footer a:hover { color: var(--accent); }
 .use-case-row {
   background: var(--bg-card);
   border-radius: 8px;
-  padding: 12px 14px;
-  margin-bottom: 8px;
+  padding: 11px 13px;
+  margin-bottom: 6px;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 10px;
   align-items: center;
 }
-.use-case-row .uc-label { font-size: 0.9em; }
-.use-case-row .uc-pick { font-weight: 700; font-size: 0.88em; color: var(--gold); }
+.use-case-row .uc-label { font-size: 0.88em; }
+.use-case-row .uc-pick { font-weight: 700; font-size: 0.85em; color: var(--gold); text-align: right; }
+@media (max-width: 600px) {
+  .use-case-row { grid-template-columns: 1fr; padding: 10px 12px; }
+  .use-case-row .uc-pick { text-align: left; padding-top: 2px; }
+}
 </style>
 </head>
 <body>
@@ -279,10 +457,18 @@ footer a:hover { color: var(--accent); }
     <div class="sub">自動上下水 × 11cm 沙發底 × Top 3 三機對打</div>
   </header>
 
+  <!-- 行動版置頂：快速答案 -->
+  <div class="quick-answer">
+    <div class="qa-label">⚡ 懶人答案</div>
+    <div class="qa-pick">石頭 Qrevo Edge 2 Pro</div>
+    <div class="qa-reason">~NT$ 30,000　·　7.98cm + 25,000Pa + 100°C 熱水洗　·　Reddit 81% 正評（候選機冠軍）</div>
+    <a href="#battle" class="qa-cta">看三機對打 →</a>
+  </div>
+
   <div class="changelog">
-    <div><span class="v">v4 更新：</span> 加入 <strong style="color:var(--gold)">Top 3 三機詳細對打</strong>（Qrevo Edge 2 Pro × Saros 20 × MOVA Mobius 60），8 維度總分卡、規格對照、情境勝負。</div>
-    <div style="margin-top:6px"><span class="v">v3：</span>加入 Reddit + Mobile01 + PTT 真實用戶滿意度，推薦排名洗牌。</div>
-    <div style="margin-top:6px"><span class="v">v2：</span>修正 X40 Master 機身陷阱、加入 MOVA Mobius 60、石頭 G20S Ultra。</div>
+    <div><span class="v">v4：</span> 新增 <strong style="color:var(--gold)">Top 3 三機詳細對打</strong>（8 維度總分卡、規格對照）。手機介面優化。</div>
+    <div style="margin-top:4px"><span class="v">v3：</span>加入 Reddit + Mobile01 真實用戶滿意度，推薦排名洗牌。</div>
+    <div style="margin-top:4px"><span class="v">v2：</span>修正 X40 Master 機身陷阱、加入 MOVA Mobius 60。</div>
   </div>
 
   <nav class="toc">
@@ -1033,5 +1219,27 @@ footer a:hover { color: var(--accent); }
     </div>
   </footer>
 </div>
+
+<!-- Sticky FAB 浮動目錄 -->
+<button class="toc-fab" onclick="document.getElementById('tocSheet').classList.add('open')" aria-label="開啟目錄">≡</button>
+<div class="toc-sheet" id="tocSheet" onclick="if(event.target===this) this.classList.remove('open')">
+  <div class="toc-sheet-inner">
+    <div class="toc-sheet-handle"></div>
+    <h3>目錄</h3>
+    <a href="#hard" onclick="document.getElementById('tocSheet').classList.remove('open')">① 需求 & 11cm 沙發鐵則</a>
+    <a href="#trap" onclick="document.getElementById('tocSheet').classList.remove('open')">② 重要陷阱：「低矮版」≠ 機身低</a>
+    <a href="#candidates" onclick="document.getElementById('tocSheet').classList.remove('open')">③ A 組｜打包上下水 SKU</a>
+    <a href="#module" onclick="document.getElementById('tocSheet').classList.remove('open')">④ B 組｜需另購水路模組</a>
+    <a href="#warning" onclick="document.getElementById('tocSheet').classList.remove('open')">⑤ C 組｜警告 / 不合</a>
+    <a href="#table" onclick="document.getElementById('tocSheet').classList.remove('open')">⑥ 規格交叉比較表</a>
+    <a href="#videos" onclick="document.getElementById('tocSheet').classList.remove('open')">⑦ 各機型實測影片</a>
+    <a href="#reviews" onclick="document.getElementById('tocSheet').classList.remove('open')">⑧ 真實用戶滿意度 ⭐</a>
+    <a href="#battle" onclick="document.getElementById('tocSheet').classList.remove('open')">⑨ Top 3 三機詳細對打 🆕</a>
+    <a href="#scenarios" onclick="document.getElementById('tocSheet').classList.remove('open')">⑩ 情境推薦</a>
+    <a href="#checklist" onclick="document.getElementById('tocSheet').classList.remove('open')">⑪ 購買前必做清單</a>
+    <a href="#final" onclick="document.getElementById('tocSheet').classList.remove('open')">⑫ 最終一句話</a>
+  </div>
+</div>
+
 </body>
 </html>
