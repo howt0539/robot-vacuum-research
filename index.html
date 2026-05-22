@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>掃地機器人選購研究報告 2026｜自動上下水 × 11cm 沙發</title>
+<meta name="description" content="2026 年自動上下水掃地機器人 6 大品牌交叉比較，含實測影片、規格表與情境推薦。">
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg-card: #131826;
+  --bg-card-2: #1a2235;
+  --border: #2a3349;
+  --text: #e7ebf2;
+  --text-dim: #8b94a8;
+  --text-mute: #5a6478;
+  --accent: #60a5fa;
+  --gold: #fbbf24;
+  --green: #34d399;
+  --red: #f87171;
+  --orange: #fb923c;
+  --purple: #c084fc;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 16px 16px 80px;
+  overscroll-behavior-x: none;
+}
+.container { max-width: 760px; margin: 0 auto; }
+
+/* Header */
+.hero {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.hero .badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #60a5fa20, #c084fc20);
+  border: 1px solid #60a5fa50;
+  color: var(--accent);
+  font-size: 0.75em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.hero h1 {
+  font-size: 1.6em;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.hero .sub {
+  color: var(--text-dim);
+  font-size: 0.9em;
+}
+
+/* Section */
+section { margin-bottom: 40px; }
+h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+h3 { font-size: 1.05em; margin: 20px 0 10px; color: var(--text); }
+p { margin-bottom: 12px; color: var(--text); font-size: 0.95em; }
+.dim { color: var(--text-dim); }
+
+/* Hard constraints */
+.constraint-box {
+  background: linear-gradient(135deg, #fbbf2410, #fb923c10);
+  border: 1px solid #fbbf2440;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+}
+.constraint-box .icon { font-size: 1.4em; }
+.constraint-box strong { color: var(--gold); }
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.card-title { font-size: 1.1em; font-weight: 700; }
+.card-brand { font-size: 0.75em; color: var(--text-mute); margin-top: 2px; }
+.medal { font-size: 1.4em; flex-shrink: 0; }
+
+.spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+@media (max-width: 480px) { .spec-grid { grid-template-columns: 1fr; } }
+.spec-item {
+  background: var(--bg-card-2);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.spec-label { font-size: 0.72em; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.05em; }
+.spec-value { font-size: 0.95em; font-weight: 600; margin-top: 2px; }
+
+.pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.72em;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.pill-green { background: #34d39920; color: var(--green); border: 1px solid #34d39940; }
+.pill-orange { background: #fb923c20; color: var(--orange); border: 1px solid #fb923c40; }
+.pill-red { background: #f8717120; color: var(--red); border: 1px solid #f8717140; }
+.pill-blue { background: #60a5fa20; color: var(--accent); border: 1px solid #60a5fa40; }
+
+.pros-cons { margin-top: 12px; }
+.pros-cons .row { display: flex; gap: 10px; margin: 6px 0; font-size: 0.9em; }
+.pros-cons .icon { flex-shrink: 0; }
+
+/* Video */
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 14px 0 4px;
+  background: #000;
+}
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+.video-caption {
+  font-size: 0.8em;
+  color: var(--text-mute);
+  margin-top: 6px;
+}
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 16px -16px; padding: 0 16px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85em;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th, td { padding: 10px 8px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { background: var(--bg-card-2); color: var(--text-dim); font-weight: 600; font-size: 0.78em; text-transform: uppercase; }
+tr:last-child td { border-bottom: none; }
+.col-gold { color: var(--gold); font-weight: 700; }
+
+/* Scenarios */
+.scenario {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.scenario.gold { border-left-color: var(--gold); }
+.scenario.green { border-left-color: var(--green); }
+.scenario.purple { border-left-color: var(--purple); }
+.scenario .title { font-weight: 700; font-size: 1em; margin-bottom: 6px; }
+.scenario .pick { color: var(--gold); font-weight: 700; }
+
+/* Checklist */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: "☐";
+  position: absolute;
+  left: 0; top: 8px;
+  color: var(--accent);
+  font-size: 1.1em;
+}
+
+/* Final */
+.final-box {
+  background: linear-gradient(135deg, #60a5fa15, #c084fc15);
+  border: 1px solid #60a5fa40;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+.final-box .label {
+  font-size: 0.75em;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.final-box .name {
+  font-size: 1.3em;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.final-box .reason {
+  font-size: 0.9em;
+  color: var(--text-dim);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--text-mute);
+  font-size: 0.8em;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--text-dim); text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+.toc {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 28px;
+}
+.toc-title { font-size: 0.8em; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.toc a {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 0;
+  font-size: 0.9em;
+  border-bottom: 1px dashed var(--border);
+}
+.toc a:last-child { border-bottom: none; }
+.toc a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <span class="badge">2026 ／ TAIWAN</span>
+    <h1>掃地機器人選購研究報告</h1>
+    <div class="sub">自動上下水 × 11cm 沙發底 × 6 大品牌交叉比較</div>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-title">目錄</div>
+    <a href="#hard">① 你的需求 & 11cm 沙發鐵則</a>
+    <a href="#candidates">② 6 大品牌候選機型</a>
+    <a href="#table">③ 規格交叉比較表</a>
+    <a href="#videos">④ 各機型實測影片</a>
+    <a href="#scenarios">⑤ 情境推薦</a>
+    <a href="#checklist">⑥ 購買前必做清單</a>
+    <a href="#final">⑦ 最終一句話</a>
+  </nav>
+
+  <!-- 硬條件 -->
+  <section id="hard">
+    <h2>① 需求拆解 & 11cm 沙發鐵則</h2>
+    <p><strong>你給的條件：</strong>自動上下水 + 沙發 11cm + 各品牌交叉比較。</p>
+    <div class="constraint-box">
+      <span class="icon">⚠️</span>
+      <strong>鐵則：機身高度 ≤ 9.5cm 才能順暢進出 11cm 沙發底</strong>
+      <p style="margin-top:8px; font-size:0.88em; color:var(--text-dim)">11cm 是「沙發底淨空」，要留 1.5cm 餘裕給雷達凸點。9.6~10cm 機型「進得去但會擦底」，長期傷沙發布或機器頂蓋。</p>
+    </div>
+    <h3>直接淘汰</h3>
+    <p>
+      <span class="pill pill-red">❌ Eufy X10 Pro Omni</span> 11.4cm 進不去<br>
+      <span class="pill pill-red">❌ Dyson Spot+Scrub Ai</span> 11cm 卡死<br>
+      <span class="pill pill-red">❌ 科沃斯 X11 PRO OMNI</span> 沒有原生自動上下水
+    </p>
+  </section>
+
+  <!-- 候選機型 -->
+  <section id="candidates">
+    <h2>② 6 大品牌候選機型</h2>
+    <p class="dim">從 6 大品牌篩出 6 台符合「11cm 進得去 + 自動上下水（原生或選配）」的機型。</p>
+
+    <!-- Saros 20 -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">石頭 Saros 20</div>
+          <div class="card-brand">Roborock · 規格天花板</div>
+        </div>
+        <div class="medal">🥇</div>
+      </div>
+      <div>
+        <span class="pill pill-green">7.95cm</span>
+        <span class="pill pill-blue">原生上下水</span>
+        <span class="pill pill-green">36,000Pa</span>
+        <span class="pill pill-orange">100°C 沸水洗</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label">機身高度</div><div class="spec-value">7.95cm（藏雷射塔）</div></div>
+        <div class="spec-item"><div class="spec-label">越障</div><div class="spec-value">4.5+4.3cm 雙門檻</div></div>
+        <div class="spec-item"><div class="spec-label">拖布烘乾</div><div class="spec-value">55°C 熱風</div></div>
+        <div class="spec-item"><div class="spec-label">台灣早鳥價</div><div class="spec-value" style="color:var(--gold)">NT$ 32,980</div></div>
+      </div>
+      <div class="pros-cons">
+        <div class="row"><span class="icon">✅</span><span>規格全面碾壓、原生上下水、品牌維修最完整</span></div>
+        <div class="row"><span class="icon">⚠️</span><span>傳統雙旋轉拖盤，不是滾筒/履帶活洗</span></div>
+      </div>
+    </div>
+
+    <!-- Saros 10R -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">石頭 Saros 10R</div>
+          <div class="card-brand">Roborock · CP 值首選</div>
+        </div>
+        <div class="medal">🥈</div>
+      </div>
+      <div>
+        <span class="pill pill-green">7.98cm</span>
+        <span class="pill pill-blue">原生上下水</span>
+        <span class="pill pill-green">22,000Pa</span>
+        <span class="pill pill-orange">80°C 熱水洗</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label">機身高度</div><div class="spec-value">7.98cm</div></div>
+        <div class="spec-item"><div class="spec-label">特色</div><div class="spec-value">FlexiArm 升降臂</div></div>
+        <div class="spec-item"><div class="spec-label">基站</div><div class="spec-value">多功能基座 4.0</div></div>
+        <div class="spec-item"><div class="spec-label">台灣價</div><div class="spec-value" style="color:var(--gold)">35-40k</div></div>
+      </div>
+      <div class="pros-cons">
+        <div class="row"><span class="icon">✅</span><span>比 Saros 20 便宜 5-7k，規格依然頂</span></div>
+        <div class="row"><span class="icon">⚠️</span><span>沒有 100°C 沸水洗、吸力 22k 比 Saros 20 36k 弱</span></div>
+      </div>
+    </div>
+
+    <!-- Qrevo Edge 2 Pro -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">石頭 Qrevo Edge 2 Pro</div>
+          <div class="card-brand">Roborock · 隱藏版 CP 王</div>
+        </div>
+        <div class="medal">🥉</div>
+      </div>
+      <div>
+        <span class="pill pill-green">7.98cm</span>
+        <span class="pill pill-blue">原生上下水</span>
+        <span class="pill pill-green">25,000Pa</span>
+        <span class="pill pill-orange">100°C 熱水洗</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label">機身高度</div><div class="spec-value">7.98cm</div></div>
+        <div class="spec-item"><div class="spec-label">越障</div><div class="spec-value">3+1cm 雙門檻</div></div>
+        <div class="spec-item"><div class="spec-label">特色</div><div class="spec-value">三重零纏繞</div></div>
+        <div class="spec-item"><div class="spec-label">台灣價</div><div class="spec-value" style="color:var(--gold)">約 30,000</div></div>
+      </div>
+      <div class="pros-cons">
+        <div class="row"><span class="icon">✅</span><span>有 100°C 熱水洗 + 25k 吸力，比 10R 拖地更狠</span></div>
+        <div class="row"><span class="icon">⚠️</span><span>越障 3cm 比 Saros 20 弱（家裡門檻不高就無妨）</span></div>
+      </div>
+    </div>
+
+    <!-- Dreame X50 Ultra -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">追覓 X50 Ultra</div>
+          <div class="card-brand">Dreame · 黑科技派</div>
+        </div>
+        <div class="medal">4</div>
+      </div>
+      <div>
+        <span class="pill pill-green">8.9cm（潛望升降）</span>
+        <span class="pill pill-orange">選配上下水</span>
+        <span class="pill pill-green">20,000Pa</span>
+        <span class="pill pill-orange">80°C 熱水洗</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label">機身高度</div><div class="spec-value">8.9cm + 潛望升降</div></div>
+        <div class="spec-item"><div class="spec-label">特色</div><div class="spec-value">雙仿生機械臂</div></div>
+        <div class="spec-item"><div class="spec-label">越障</div><div class="spec-value">6cm（仿生輪足）</div></div>
+        <div class="spec-item"><div class="spec-label">台灣價</div><div class="spec-value" style="color:var(--gold)">33,480 + 模組</div></div>
+      </div>
+      <div class="pros-cons">
+        <div class="row"><span class="icon">✅</span><span>潛望升降深入低矮、機械臂貼牆清潔最強</span></div>
+        <div class="row"><span class="icon">⚠️</span><span>上下水要另購模組 + 安裝費（約 +3-5k）</span></div>
+      </div>
+    </div>
+
+    <!-- Narwal FLOW -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">雲鯨 FLOW 自游履神</div>
+          <div class="card-brand">Narwal · 設計派</div>
+        </div>
+        <div class="medal">5</div>
+      </div>
+      <div>
+        <span class="pill pill-green">9.5cm</span>
+        <span class="pill pill-orange">選配上下水</span>
+        <span class="pill pill-orange">45°C 熱活水</span>
+        <span class="pill pill-blue">履帶式</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label">機身高度</div><div class="spec-value">9.5cm（剛通過）</div></div>
+        <div class="spec-item"><div class="spec-label">拖地技術</div><div class="spec-value">熱活水履帶</div></div>
+        <div class="spec-item"><div class="spec-label">特色</div><div class="spec-value">究極自清潔系統</div></div>
+        <div class="spec-item"><div class="spec-label">台灣價</div><div class="spec-value" style="color:var(--gold)">約 35-40k+</div></div>
+      </div>
+      <div class="pros-cons">
+        <div class="row"><span class="icon">✅</span><span>履帶式拖布 = 拖地洗得最乾淨那一派、設計美學頂</span></div>
+        <div class="row"><span class="icon">⚠️</span><span>9.5cm 邊緣、上下水需選配 5.0 模組、維修據點少</span></div>
+      </div>
+    </div>
+
+    <!-- ECOVACS X8 PRO OMNI -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">科沃斯 X8 PRO OMNI</div>
+          <div class="card-brand">ECOVACS · 滾筒洗地拓荒</div>
+        </div>
+        <div class="medal">6</div>
+      </div>
+      <div>
+        <span class="pill pill-orange">9.8cm ⚠️</span>
+        <span class="pill pill-blue">原生上下水</span>
+        <span class="pill pill-green">18,000Pa</span>
+        <span class="pill pill-blue">滾筒活水</span>
+      </div>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-label">機身高度</div><div class="spec-value">9.8cm（邊緣風險）</div></div>
+        <div class="spec-item"><div class="spec-label">拖地技術</div><div class="spec-value">16 孔活水滾筒</div></div>
+        <div class="spec-item"><div class="spec-label">特色</div><div class="spec-value">全台首款洗地機器人</div></div>
+        <div class="spec-item"><div class="spec-label">台灣電商價</div><div class="spec-value" style="color:var(--gold)">25-33k</div></div>
+      </div>
+      <div class="pros-cons">
+        <div class="row"><span class="icon">✅</span><span>滾筒活洗，拖地全程都用乾淨水、邊拖邊洗</span></div>
+        <div class="row"><span class="icon">⚠️</span><span><strong>9.8cm 對 11cm 沙發無餘裕，買前實測沙發底</strong></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 比較表 -->
+  <section id="table">
+    <h2>③ 規格交叉比較表</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th></th><th>機型</th><th>高度</th><th>吸力</th><th>熱水洗</th><th>上下水</th><th>價格</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="col-gold">🥇</td><td>石頭 Saros 20</td><td>7.95cm</td><td>36,000Pa</td><td>100°C</td><td>原生</td><td>32,980</td></tr>
+          <tr><td class="col-gold">🥈</td><td>石頭 Saros 10R</td><td>7.98cm</td><td>22,000Pa</td><td>80°C</td><td>原生</td><td>35-40k</td></tr>
+          <tr><td class="col-gold">🥉</td><td>石頭 Qrevo Edge 2 Pro</td><td>7.98cm</td><td>25,000Pa</td><td>100°C</td><td>原生</td><td>~30k</td></tr>
+          <tr><td>4</td><td>追覓 X50 Ultra</td><td>8.9cm</td><td>20,000Pa</td><td>80°C</td><td>選配</td><td>33,480+</td></tr>
+          <tr><td>5</td><td>雲鯨 FLOW</td><td>9.5cm</td><td>—</td><td>45°C 活水</td><td>選配</td><td>~35k+</td></tr>
+          <tr><td>6</td><td>科沃斯 X8 PRO OMNI</td><td>9.8cm ⚠️</td><td>18,000Pa</td><td>有</td><td>原生</td><td>25-33k</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 實測影片 -->
+  <section id="videos">
+    <h2>④ 各機型實測影片</h2>
+    <p class="dim">每台候選機都附 1 支重點實測，看完就知道清潔效果、噪音、實際使用差異。</p>
+
+    <div class="card">
+      <h3>🥇 石頭 Saros 20 — 邦尼評測（中文，最完整）</h3>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/JjmaVX5kWLc" title="邦尼評測 Saros 20" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">邦尼評測：2026 石頭最頂、智慧升降底盤 3.0、100°C 熱水洗布、優缺點與災情實測</div>
+    </div>
+
+    <div class="card">
+      <h3>🥈 石頭 Saros 10R — 對比 Saros 20</h3>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/INTvWIW877s" title="Saros 20 vs 10R" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">Saros 20 vs Saros 10R：升級值不值得，省下 5-7k 換什麼</div>
+    </div>
+
+    <div class="card">
+      <h3>🥉 石頭 Qrevo Edge 2 Pro — 國際首發評測</h3>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/MtZsOItS5MY" title="Qrevo Edge 2 Pro First Look" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">First Look：7.98cm 機身 + 25,000Pa + 100°C 熱水洗的隱藏版 CP 王</div>
+    </div>
+
+    <div class="card">
+      <h3>4. 追覓 X50 Ultra — 壹哥黑科技實測</h3>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/2NCnJG34gWA" title="Dreame X50 Ultra 黑科技實測" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">住家內部大公開：6cm 越障、20k 吸力、升降雷達、80°C 自清潔、UV 殺菌</div>
+    </div>
+
+    <div class="card">
+      <h3>5. 雲鯨 FLOW — 電腦王阿達深度開箱</h3>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/TRm0JKkOPcs" title="Narwal FLOW 自游履神" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">熱活水履帶 AI 掃拖：究極自清潔系統 × 巨型履帶拖布</div>
+    </div>
+
+    <div class="card">
+      <h3>6. 科沃斯 X8 PRO OMNI — 邦尼評測（與旋轉拖比較）</h3>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/8DSELnOevBo" title="ECOVACS X8 PRO OMNI 邦尼評測" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">黑科技洗地機器人：對比旋轉拖地、熱水洗、防纏繞、機械手臂、災情盤點</div>
+    </div>
+  </section>
+
+  <!-- 情境推薦 -->
+  <section id="scenarios">
+    <h2>⑤ 情境推薦</h2>
+
+    <div class="scenario gold">
+      <div class="title">🎯 A：要規格頂、預算 3 萬出頭</div>
+      <p><span class="pick">→ 石頭 Saros 20（NT$ 32,980 早鳥）</span></p>
+      <p class="dim">7.95cm 對 11cm 沙發完全沒壓力，36,000Pa + 100°C 沸水洗 = 規格天花板，原生上下水。</p>
+    </div>
+
+    <div class="scenario green">
+      <div class="title">🎯 B：拖地要洗得最乾淨、可接受機身略厚</div>
+      <p><span class="pick">→ 科沃斯 X8 PRO OMNI（NT$ 25-33k）</span></p>
+      <p class="dim">滾筒活洗、16 孔噴水，拖布永遠乾淨。⚠️ 9.8cm 邊緣，買前用尺實量沙發底真實淨空。</p>
+    </div>
+
+    <div class="scenario purple">
+      <div class="title">🎯 C：想要差異化黑科技、喜歡追覓</div>
+      <p><span class="pick">→ 追覓 X50 Ultra（NT$ 33,480 + 模組）</span></p>
+      <p class="dim">8.9cm + 潛望升降深入低矮無敵，雙仿生機械臂貼牆清潔最強。⚠️ 上下水要另購模組。</p>
+    </div>
+
+    <div class="scenario">
+      <div class="title">🎯 D：CP 值優先、不需 100°C</div>
+      <p><span class="pick">→ 石頭 Saros 10R（NT$ 35-40k）</span></p>
+      <p class="dim">7.98cm + 80°C 熱水洗 + FlexiArm 升降，便宜 5-7k，品牌維修最完整。</p>
+    </div>
+  </section>
+
+  <!-- 購買前清單 -->
+  <section id="checklist">
+    <h2>⑥ 購買前必做清單</h2>
+    <ul class="checklist">
+      <li><strong>量沙發底真實淨空高度</strong> — 用尺從地板量到沙發底板，確認真的有 11cm（部分沙發只有 9-10cm）</li>
+      <li><strong>量門檻高度</strong> — 家裡門檻 &gt; 2cm 的話，Saros 20 的 4.5cm 越障是必要功能</li>
+      <li><strong>確認基站位置可接水路</strong> — 自動上下水要靠近廚房/陽台/浴室，需有插座 + 水管接點</li>
+      <li><strong>確認家裡水路可分流</strong> — 上下水模組要接到家中冷水管 + 排水管</li>
+      <li><strong>問清楚追覓/雲鯨選配模組是否含安裝</strong> — 常見「漏報價」陷阱</li>
+    </ul>
+  </section>
+
+  <!-- 最終 -->
+  <section id="final">
+    <h2>⑦ 最終一句話</h2>
+    <div class="final-box">
+      <div class="label">懶人答案</div>
+      <div class="name">石頭 Saros 20</div>
+      <div class="reason">NT$ 32,980 早鳥 + 找師傅做水路<br>7.95cm × 36,000Pa × 100°C 沸水洗 × 原生上下水<br>品牌維修最完整，3 萬出頭規格天花板。</div>
+    </div>
+  </section>
+
+  <footer>
+    <div>2026-05-22 · 資料來源：各品牌官網、PChome、momo、邦尼評測、電腦王阿達、塔科女子、News Pie、vocus、PTT/Dcard</div>
+    <div style="margin-top:8px">
+      <a href="https://www.roborocktw.com/" target="_blank">石頭</a> ·
+      <a href="https://www.dreametech.com.tw/" target="_blank">追覓</a> ·
+      <a href="https://www.ecovacs.com/tw/" target="_blank">科沃斯</a> ·
+      <a href="https://www.narwal-taiwan.com/" target="_blank">雲鯨</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
