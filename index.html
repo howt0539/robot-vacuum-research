@@ -194,6 +194,80 @@ footer a:hover { color: var(--accent); }
   font-size: 0.88em;
 }
 .changelog .v { color: var(--green); font-weight: 700; }
+
+/* Battle / 3-way comparison */
+.battle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0; }
+@media (max-width: 600px) { .battle-grid { grid-template-columns: 1fr; gap: 12px; } }
+.battle-col {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
+}
+.battle-col.win { border-color: var(--gold); background: linear-gradient(180deg, #fbbf2410, var(--bg-card)); }
+.battle-col .machine-name { font-weight: 700; font-size: 0.82em; margin-bottom: 4px; }
+.battle-col .machine-brand { font-size: 0.7em; color: var(--text-mute); margin-bottom: 8px; }
+
+.score-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 600px) { .score-row { grid-template-columns: 1fr; gap: 4px; } }
+.score-row .dim-label { font-size: 0.85em; color: var(--text-dim); font-weight: 600; }
+.score-row .dim-label small { display: block; color: var(--text-mute); font-size: 0.75em; font-weight: 400; }
+.score-cell { display: flex; align-items: center; gap: 6px; font-size: 0.82em; }
+.score-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-card-2);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.score-fill { height: 100%; border-radius: 3px; }
+.score-fill.s10 { width: 100%; background: var(--green); }
+.score-fill.s9 { width: 90%; background: var(--green); }
+.score-fill.s8 { width: 80%; background: var(--accent); }
+.score-fill.s7 { width: 70%; background: var(--accent); }
+.score-fill.s6 { width: 60%; background: var(--gold); }
+.score-fill.s5 { width: 50%; background: var(--gold); }
+.score-fill.s4 { width: 40%; background: var(--orange); }
+.score-fill.s3 { width: 30%; background: var(--orange); }
+.score-num { min-width: 22px; font-size: 0.75em; color: var(--text-mute); text-align: right; font-variant-numeric: tabular-nums; }
+.score-num.win { color: var(--gold); font-weight: 700; }
+@media (max-width: 600px) {
+  .score-row .machine-tag { font-size: 0.7em; color: var(--text-mute); margin-right: 6px; min-width: 50px; display: inline-block; }
+}
+.machine-tag { display: none; }
+@media (max-width: 600px) { .machine-tag { display: inline-block; } }
+
+.verdict {
+  background: linear-gradient(135deg, #fbbf2415, #60a5fa15);
+  border: 1px solid #fbbf2440;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-top: 12px;
+  font-size: 0.9em;
+}
+.verdict .who-wins { color: var(--gold); font-weight: 700; }
+
+.use-case-row {
+  background: var(--bg-card);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+.use-case-row .uc-label { font-size: 0.9em; }
+.use-case-row .uc-pick { font-weight: 700; font-size: 0.88em; color: var(--gold); }
 </style>
 </head>
 <body>
@@ -201,12 +275,13 @@ footer a:hover { color: var(--accent); }
 
   <header class="hero">
     <span class="badge">2026 ／ TAIWAN</span>
-    <h1>掃地機器人選購研究報告 <span class="ver">v3</span></h1>
-    <div class="sub">自動上下水 × 11cm 沙發底 × Reddit + PTT 真實滿意度</div>
+    <h1>掃地機器人選購研究報告 <span class="ver">v4</span></h1>
+    <div class="sub">自動上下水 × 11cm 沙發底 × Top 3 三機對打</div>
   </header>
 
   <div class="changelog">
-    <div><span class="v">v3 更新（2026-05-22）：</span> 加入 Reddit + Mobile01 + PTT 真實用戶滿意度數據，<strong style="color:var(--gold)">推薦排名大洗牌</strong>。</div>
+    <div><span class="v">v4 更新：</span> 加入 <strong style="color:var(--gold)">Top 3 三機詳細對打</strong>（Qrevo Edge 2 Pro × Saros 20 × MOVA Mobius 60），8 維度總分卡、規格對照、情境勝負。</div>
+    <div style="margin-top:6px"><span class="v">v3：</span>加入 Reddit + Mobile01 + PTT 真實用戶滿意度，推薦排名洗牌。</div>
     <div style="margin-top:6px"><span class="v">v2：</span>修正 X40 Master 機身陷阱、加入 MOVA Mobius 60、石頭 G20S Ultra。</div>
   </div>
 
@@ -220,9 +295,10 @@ footer a:hover { color: var(--accent); }
     <a href="#table">⑥ 規格交叉比較表</a>
     <a href="#videos">⑦ 各機型實測影片</a>
     <a href="#reviews">⑧ 真實用戶滿意度（Reddit + 台灣論壇）⭐</a>
-    <a href="#scenarios">⑨ 情境推薦（已依用戶數據調整）</a>
-    <a href="#checklist">⑩ 購買前必做清單</a>
-    <a href="#final">⑪ 最終一句話</a>
+    <a href="#battle">⑨ Top 3 三機詳細對打 🆕</a>
+    <a href="#scenarios">⑩ 情境推薦</a>
+    <a href="#checklist">⑪ 購買前必做清單</a>
+    <a href="#final">⑫ 最終一句話</a>
   </nav>
 
   <!-- 硬條件 -->
@@ -720,9 +796,171 @@ footer a:hover { color: var(--accent); }
     </div>
   </section>
 
+  <!-- Top 3 三機詳細對打 -->
+  <section id="battle">
+    <h2>⑨ Top 3 三機詳細對打 🆕</h2>
+    <p class="dim">把 Reddit 數據前三 + 適合 11cm 沙發的三台拉出來決戰。8 維度評分（0-10）、規格全對照、情境誰勝。</p>
+
+    <div class="battle-grid">
+      <div class="battle-col">
+        <div class="machine-name">石頭 Qrevo Edge 2 Pro</div>
+        <div class="machine-brand">Roborock · 滿意度王 81%</div>
+        <div style="font-size:0.78em; color:var(--gold)">~NT$ 30,000</div>
+      </div>
+      <div class="battle-col">
+        <div class="machine-name">石頭 Saros 20</div>
+        <div class="machine-brand">Roborock · 規格王 65%</div>
+        <div style="font-size:0.78em; color:var(--gold)">NT$ 32,980</div>
+      </div>
+      <div class="battle-col">
+        <div class="machine-name">MOVA Mobius 60</div>
+        <div class="machine-brand">MOVA · 新黑馬 73%</div>
+        <div style="font-size:0.78em; color:var(--gold)">NT$ 31,980</div>
+      </div>
+    </div>
+
+    <h3>A. 8 維度總分卡（0-10）</h3>
+    <div class="card">
+
+      <div class="score-row">
+        <div class="dim-label">機身輕薄<small>11cm 沙發適配</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num win">9</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s10"></div></div><span class="score-num win">10</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s7"></div></div><span class="score-num">7</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">吸力<small>數值越大越強</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s7"></div></div><span class="score-num">7</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s10"></div></div><span class="score-num win">10</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num">9</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">拖地效果<small>含汙水管理</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s8"></div></div><span class="score-num win">8</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s6"></div></div><span class="score-num">6</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s7"></div></div><span class="score-num">7</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">越障能力<small>門檻/地毯</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s5"></div></div><span class="score-num">5</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num">9</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s10"></div></div><span class="score-num win">10</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">避障智能<small>線材/便便/家具</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s5"></div></div><span class="score-num">5</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s8"></div></div><span class="score-num">8</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num win">9</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">用戶滿意度<small>Reddit 正評率</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s8"></div></div><span class="score-num win">8.1</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s6"></div></div><span class="score-num">6.5</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s7"></div></div><span class="score-num">7.3</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">CP 值<small>同價比規格</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num win">9</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s7"></div></div><span class="score-num">7</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s8"></div></div><span class="score-num">8</span></div>
+      </div>
+
+      <div class="score-row">
+        <div class="dim-label">品牌維修<small>保固/客服/通路</small></div>
+        <div class="score-cell"><span class="machine-tag">Edge2Pro</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num win">9</span></div>
+        <div class="score-cell"><span class="machine-tag">Saros 20</span><div class="score-bar"><div class="score-fill s9"></div></div><span class="score-num win">9</span></div>
+        <div class="score-cell"><span class="machine-tag">Mobius</span><div class="score-bar"><div class="score-fill s7"></div></div><span class="score-num">7</span></div>
+      </div>
+
+      <div class="verdict">
+        <strong>總分</strong>　Qrevo Edge 2 Pro <span class="who-wins">60</span> ／ Saros 20 <span class="who-wins">65</span> ／ Mobius 60 <span class="who-wins">57</span>
+        <div style="margin-top:6px; font-size:0.85em; color:var(--text-dim)">紙上加總 Saros 20 略勝，但 Edge 2 Pro 在「拖地/CP值/滿意度」三項實際使用感最重要的維度都勝出。Mobius 60 越障與避障最強但機身略厚。</div>
+      </div>
+    </div>
+
+    <h3>B. 完整規格對照表</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>規格</th><th>Edge 2 Pro</th><th>Saros 20</th><th>Mobius 60</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>機身高度</strong></td><td style="color:var(--green)">7.98cm</td><td style="color:var(--green)">7.95cm</td><td>8.95cm（雷達收）</td></tr>
+          <tr><td>雷達升降</td><td>固定 LDS</td><td>VertiBeam</td><td style="color:var(--green)">FlexScope 升降</td></tr>
+          <tr><td>吸力</td><td>25,000Pa</td><td style="color:var(--green)">36,000Pa</td><td>30,000Pa</td></tr>
+          <tr><td>熱水洗</td><td>100°C</td><td style="color:var(--green)">100°C 沸水</td><td>100°C</td></tr>
+          <tr><td>拖地系統</td><td>雙旋轉拖盤</td><td>雙旋轉 + 聲波震動</td><td style="color:var(--green)">自動換 3 種拖布</td></tr>
+          <tr><td>機械臂</td><td>有（單側延展）</td><td style="color:var(--green)">FlexiArm + 拖布伸縮</td><td>側刷 10mm 伸縮</td></tr>
+          <tr><td>越障</td><td>3+1cm</td><td style="color:var(--green)">4.5+4.3cm</td><td style="color:var(--green)">8cm（仿生輪足）</td></tr>
+          <tr><td>防纏繞</td><td>三重</td><td>DuoDivide 雙懸臂</td><td>三重</td></tr>
+          <tr><td>導航</td><td>標準 LDS</td><td style="color:var(--green)">StarSight 2.0（最強）</td><td>AI SmartSight + 240+ 辨識</td></tr>
+          <tr><td>烘乾</td><td>熱風</td><td>55°C 熱風</td><td>45°C 熱風</td></tr>
+          <tr><td>噪音</td><td style="color:var(--green)">拖 55dB / 吸 68dB</td><td>—</td><td>&lt; 60dB（靜音）</td></tr>
+          <tr><td>電池</td><td>—</td><td>—</td><td>6,400mAh / 180 分鐘</td></tr>
+          <tr><td>淨水箱 / 污水箱</td><td>—</td><td>—</td><td>5.5L / 4L</td></tr>
+          <tr><td>集塵桶</td><td>—</td><td>—</td><td>3.2L</td></tr>
+          <tr><td>自動上下水</td><td style="color:var(--green)">打包 SKU</td><td style="color:var(--green)">打包 SKU</td><td style="color:var(--green)">打包 SKU</td></tr>
+          <tr><td>保固</td><td>2 年</td><td>2 年</td><td style="color:var(--green)">3 年（恆隆行）</td></tr>
+          <tr><td>Reddit 正評</td><td style="color:var(--green)">81% (#65)</td><td>65% (#94)</td><td>73%</td></tr>
+          <tr><td>價格</td><td style="color:var(--green)">~NT$ 30,000</td><td>NT$ 32,980</td><td>NT$ 31,980</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>C. 情境誰勝（依「主要使用情境」直接給答案）</h3>
+
+    <div class="use-case-row">
+      <div class="uc-label">📱 我家就一般公寓、無寵物、無小孩</div>
+      <div class="uc-pick">→ Edge 2 Pro</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">🐕 多隻寵物 + 大量毛髮 + 大坪數</div>
+      <div class="uc-pick">→ Saros 20</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">🏠 家裡有 4cm+ 高門檻、需越障 SUV</div>
+      <div class="uc-pick">→ Saros 20</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">🍳 廚房油污嚴重、混合木地板 + 磁磚</div>
+      <div class="uc-pick">→ Mobius 60（自換 3 種拖布）</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">🧑‍🍳 我外食族、地板不會太髒</div>
+      <div class="uc-pick">→ Edge 2 Pro（CP 王）</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">🛋️ 家具很多、想要避障最強</div>
+      <div class="uc-pick">→ Mobius 60</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">💸 預算嚴格 3 萬內</div>
+      <div class="uc-pick">→ Edge 2 Pro</div>
+    </div>
+    <div class="use-case-row">
+      <div class="uc-label">📞 重視長期客服 + 維修便利</div>
+      <div class="uc-pick">→ Edge 2 Pro 或 Mobius 60（恆隆行 3 年保）</div>
+    </div>
+
+    <h3>D. 一句話結論</h3>
+    <div class="verdict">
+      <div style="font-size:0.95em; line-height:1.8">
+      <strong style="color:var(--gold)">Edge 2 Pro</strong>：實際滿意度王、便宜 3k、拖地不錯 — <strong>絕大多數人首選</strong><br>
+      <strong style="color:var(--gold)">Saros 20</strong>：規格頂、避障強、越障 SUV — 適合<strong>多寵 / 高門檻 / 規格控</strong><br>
+      <strong style="color:var(--gold)">Mobius 60</strong>：自動換拖布、避障最強、3 年保固 — 適合<strong>地板狀況複雜 / 想嘗鮮</strong>
+      </div>
+    </div>
+  </section>
+
   <!-- 情境推薦 -->
   <section id="scenarios">
-    <h2>⑨ 情境推薦（已依用戶數據調整）</h2>
+    <h2>⑩ 情境推薦（已依用戶數據調整）</h2>
 
     <div class="scenario gold">
       <div class="title">🎯 A：實際滿意度最高（v3 新晉首推）</div>
@@ -757,7 +995,7 @@ footer a:hover { color: var(--accent); }
 
   <!-- 購買前清單 -->
   <section id="checklist">
-    <h2>⑩ 購買前必做清單</h2>
+    <h2>⑪ 購買前必做清單</h2>
     <ul class="checklist">
       <li><strong>量沙發底真實淨空高度</strong> — 用尺從地板量到沙發底板，確認真的有 11cm（部分沙發只有 9-10cm）</li>
       <li><strong>看「機身高度」不是「基站高度」</strong> — 追覓 X40 Master「低矮版」陷阱、雲鯨 X Ultra 基站矮但機身正常，買前一定問清楚是哪一個</li>
@@ -770,7 +1008,7 @@ footer a:hover { color: var(--accent); }
 
   <!-- 最終 -->
   <section id="final">
-    <h2>⑪ 最終一句話（v3 修正版）</h2>
+    <h2>⑫ 最終一句話（v3 修正版）</h2>
     <div class="final-box">
       <div class="label">真正的懶人答案（依 Reddit 81% 正評）</div>
       <div class="name">石頭 Qrevo Edge 2 Pro</div>
@@ -785,7 +1023,7 @@ footer a:hover { color: var(--accent); }
   </section>
 
   <footer>
-    <div>v3 · 2026-05-22 · 資料來源：各品牌官網、PChome、momo、邦尼評測、電腦王阿達、塔科女子、News Pie、vocus、Vacuum Wars、Reddit (redditrecs.com)、Mobile01、PTT E-appliance、Dcard</div>
+    <div>v4 · 2026-05-22 · 資料來源：各品牌官網、PChome、momo、邦尼評測、電腦王阿達、塔科女子、News Pie、vocus、Vacuum Wars、Reddit (redditrecs.com)、The Smarthome Hookup、Mobile01、PTT E-appliance、Dcard</div>
     <div style="margin-top:8px">
       <a href="https://www.roborocktw.com/" target="_blank">石頭</a> ·
       <a href="https://www.dreametech.com.tw/" target="_blank">追覓</a> ·
