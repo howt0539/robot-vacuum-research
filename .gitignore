@@ -1,1 +1,3 @@
 .preview/
+.DS_Store
+.wrangler/
